@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:500|Lato:300,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Oswald:400|Raleway:500|Lato:300,500,700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -37,6 +37,7 @@ h1 button {
   font-size: 14px;
   margin-top: 20px;
   padding: 10px 15px;
+  font-family: "Oswald",sans-serif;
 }
 
 .btn-small {
