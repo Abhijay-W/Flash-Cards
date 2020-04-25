@@ -6,8 +6,8 @@ Examinations such as
 - SAT
 - IELTS or TOEFL
 
-require extensive vocabulary, flash cards can be used as an supplement.
-
+require extensive vocabulary.
+Used correctly, flash cards can be an integral companion to a more structured study guide.
 
 ------------
 
