@@ -16,8 +16,11 @@ let currentActiveCard = 0;
 // Store DOM cards
 const cardsEl = [];
 
+// Store card data
+const cardsData = getCardsData();
+
 // Hard coded initially 
-const cardsData = [
+/* const cardsData = [
   {
     word: 'juvenile',
     meaning: 'childish; immature'
@@ -30,7 +33,7 @@ const cardsData = [
     word: 'obnoxious',
     meaning: 'extremely unpleasant.'
   }
-];
+]; */
 
 // Create all cards
 function createCards() {
@@ -76,6 +79,12 @@ function updateCurrentText() {
   }
   
 createCards();
+// Get cards from local storage
+function getCardsData() {
+  const cards = JSON.parse(localStorage.getItem('cards'));
+  return cards === null ? [] : cards;
+}
+
 
 //Next button
 nextBtn.addEventListener('click', () => {
@@ -105,4 +114,36 @@ prevBtn.addEventListener('click', () => {
   cardsEl[currentActiveCard].className = 'card active';
 
   updateCurrentText();
+});
+
+// Show add container
+showBtn.addEventListener('click', () => addContainer.classList.add('show'));
+// Hide add container
+hideBtn.addEventListener('click', () => addContainer.classList.remove('show'));
+
+// Add new card
+addCardBtn.addEventListener('click', () => {
+  const word = questionEl.value;
+  const meaning = answerEl.value;
+
+  if (word.trim() && meaning.trim()) {
+    const newCard = { word, meaning };
+
+    createCard(newCard);
+
+    questionEl.value = '';
+    answerEl.value = '';
+
+    addContainer.classList.remove('show');
+
+    cardsData.push(newCard);
+    setCardsData(cardsData);
+  }
+});
+
+// Clear cards button
+clearBtn.addEventListener('click', () => {
+  localStorage.clear();
+  cardsContainer.innerHTML = '';
+  window.location.reload();
 });
